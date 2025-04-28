@@ -1,15 +1,18 @@
-import Link from "next/link";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../app/api/auth/[...nextauth]/route";
+'use client';
 
-async function Navbar() {
-  const session = await getServerSession(authOptions);
-  console.log(session);
+import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { Session } from "next-auth";
+
+function Navbar() {
+  const { data: session } = useSession();
+  const user = (session as Session)?.user;
 
   return (
     <nav className="flex justify-between items-center bg-white px-24 py-3">
       <h1 className="text-2xl font-bold">
-        <a href="/">AprendeX</a></h1>
+        <a href="/">AprendeX</a>
+      </h1>
 
       <ul className="flex  items-center px-5 gap-4 font-medium">
         {!session?.user ? (

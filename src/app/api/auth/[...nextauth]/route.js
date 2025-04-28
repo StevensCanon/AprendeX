@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import db from '../../../../libs/db'
 import bcrypt from 'bcrypt'
 
-export const authOptions = {
+const handler = NextAuth({
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -38,9 +38,12 @@ export const authOptions = {
   ],
   pages: {
     signIn: "/auth/login",
-  }
-};
-
-const handler = NextAuth(authOptions);
+  },
+  session: {
+    strategy: "jwt",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === "development",
+});
 
 export { handler as GET, handler as POST };

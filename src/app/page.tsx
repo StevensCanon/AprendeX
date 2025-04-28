@@ -1,23 +1,19 @@
-import Cards from "./components/Cards";
-function HomePage() {
+import { CourseCard } from "@/app/components/Cards"
+import { courses } from "@/lib/data"
+
+export default function Home() {
   return (
-    <div className="">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-4xl font-extrabold text-blue-700  sm:text-5xl pt-20">
-            Cursos de Programación Web
-          </h2>
-          <p className="mt-4 text-xl text-gray-800">
-            Aprende las tecnologías más demandadas y conviértete en un
-            desarrollador web de élite.
-          </p>
-          <div>
-            <Cards />
-          </div>
-        </div>
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold text-center mb-8">Cursos Tecnológicos e Informáticos</h1>
+      <p className="text-center text-muted-foreground mb-10">
+        Explora nuestra selección de cursos para mejorar tus habilidades tecnológicas
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {courses.map((course) => (
+          <CourseCard key={course.id} course={course} />
+        ))}
       </div>
     </div>
-  );
+  )
 }
-
-export default HomePage;

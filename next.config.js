@@ -11,7 +11,15 @@ const nextConfig = {
       'miro.medium.com',
       'www.hostingplus.com.co',
       'cdn.thenewstack.io',
-      'www.feuga.es'
+      'www.feuga.es',
+      'videocursos.co',
+      'www.udemy.com',
+      'mediatek-marketing.transforms.svdcdn.com',
+      'img.freepik.com',
+      'images.prismic.io',
+      'www.bernanetwork.com',
+      'iconiceducation.in',
+
     ],
   },
 }
